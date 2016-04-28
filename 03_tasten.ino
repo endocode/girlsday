@@ -1,10 +1,10 @@
-
+// Sprechende Namen vergeben
 int LED = 1;
 int LED_L = 3;
 int LED_R = 4;
 int TASTE_L = 0;
 int TASTE_R = 2;
-int warteZeit = 250;
+int GEDRUECKT = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -15,37 +15,26 @@ void setup() {
   pinMode(LED_L, OUTPUT);
 }
 
+
 void loop() {
+
+  // Variablen fuer die eingelesenen Werte
   int tastenwert_L;  
   int tastenwert_R;  
 
-  
+
+  // Einlesen der Tasten  
   tastenwert_L = digitalRead(TASTE_L);
   tastenwert_R = digitalRead(TASTE_R);
 
-  if (tastenwert_L == 0) {
+  if (tastenwert_L == GEDRUECKT) {
     digitalWrite(LED, HIGH);
     digitalWrite(LED_L, HIGH);
     digitalWrite(LED_R, HIGH);
-  } else if (tastenwert_R == 0) {
+  } else if (tastenwert_R == GEDRUECKT) {
     digitalWrite(LED, HIGH);
     digitalWrite(LED_L, HIGH);
     digitalWrite(LED_R, HIGH);
   }
-  
-  digitalWrite(LED, HIGH);
-  delay(warteZeit);
-  digitalWrite(LED, LOW);
-  delay(warteZeit);
-
-  digitalWrite(LED_L, HIGH);
-  delay(warteZeit);
-  digitalWrite(LED_L, LOW);
-  delay(warteZeit);
-
-  digitalWrite(LED_R, HIGH);
-  delay(warteZeit);
-  digitalWrite(LED_R, LOW);
-  delay(warteZeit);
-  
+   
 }
