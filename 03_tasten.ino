@@ -28,13 +28,11 @@ void loop() {
   tastenwert_R = digitalRead(TASTE_R);
 
   if (tastenwert_L == GEDRUECKT) {
-    digitalWrite(LED, HIGH);
-    digitalWrite(LED_L, HIGH);
+    digitalWrite(LED_L, LOW);
     digitalWrite(LED_R, HIGH);
   } else if (tastenwert_R == GEDRUECKT) {
-    digitalWrite(LED, HIGH);
     digitalWrite(LED_L, HIGH);
-    digitalWrite(LED_R, HIGH);
+    digitalWrite(LED_R, LOW);
   }
    
 }
